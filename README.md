@@ -1,4 +1,7 @@
 # r/selfhosted security guides
+
+[![CC-BY-SA](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](lICENSE.md)
+
 Started from the beginners security guide on r/selfhosted - this repo aims to be a collection of guides on all levels for those who seek to make their selfhosted applications and servers more secure.
 
 # Disclaimer and warranty.
