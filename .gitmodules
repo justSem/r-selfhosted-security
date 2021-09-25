@@ -1,0 +1,3 @@
+[submodule "linux-security-guides/imthenachoman/How-To-Secure-A-Linux-Server"]
+	path = linux-security-guides/imthenachoman/How-To-Secure-A-Linux-Server
+	url = https://github.com/imthenachoman/How-To-Secure-A-Linux-Server/
