@@ -27,7 +27,9 @@ This kind of info is especially useful for things like Phishing campaigns. The m
 
 Another danger is the case where people have a set-and-forget mentality, which leads them to never updating their services. In that case your service **will** get hacked at some point which might result in anything from your device being abused as cryptominer, to your connection being abused for malicious traffic, your devices being enslaved into a botnet or an actual human hacker who might have even more sinister intents.
 
- 
+
+Additionally some router models allow to automatically open ports via the UPnP protocol (short for *universal plug and play*). That's very convenient for hardware manufacturers, as they don't need to guide customers through a router interface that's going to be different on every model. This takes away your control over which ports are allowed to be reachable over the internet and you rely on the router manufacturer to make sure your router firmware is patched. Plus you easily might forget that you have activated that setting at some point in the past.
+
 
 # How do I know if I'm publicly exposing services?
 
@@ -119,7 +121,7 @@ These might be duplicates of parts above, but it's useful to sum them up:
 2. Change default passwords: You don't give your credit card to strangers either, do you?
 3. Use common sense: You can't magically access something you host at home without exposing something to the public internet.
 4. Use 2FA wherever you can. Any form of 2FA is better then nothing. Most services support OTP (Google Authenticator/Authy/Yubico Auth) these days and the more advanced ones even support Webauthn (Yubikeys or any other hardware token)
-
+5. Make sure UPnP is disabed in your router.
  
 
 To-do parts:
