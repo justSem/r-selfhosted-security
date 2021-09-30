@@ -51,8 +51,7 @@ The following tools might give you an insight in the ports you have opened publi
 
 * **Shodan** [https://shodan.io](https://shodan.io) \- Shodan does it's own scanning but will not per-say reveal everything as it does not tend to scan every single open port at any given time. Some IP addresses might not even be listed in Shodan.
 * **Yougetsignal** [https://www.yougetsignal.com/tools/open-ports/](https://www.yougetsignal.com/tools/open-ports/)  \- Chances are that if you've been port forwarding you've been using a tool like this to actually verify if the port you've configured is accessible.
-
- 
+* **ShieldsUp!** [https://www.grc.com/x/ne.dll?bh0bkyd2](https://www.grc.com/x/ne.dll?bh0bkyd2) \- Steve Gibson's classic tool will scan common ports, check for exposed Windows services, or scan a custom range of ports that you specify.
 
 **I'm still unsure and I want to scan it all, how do I do that?**
 
