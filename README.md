@@ -42,6 +42,7 @@ More will be added as time passes.
 ### General
 
 * ImTheNachoMan 's [How to secure a Linux server](https://github.com/imthenachoman/How-To-Secure-A-Linux-Server)
+  
   @ImTheNachoMan maintains a well-rounded guide into security on Linux platforms, as well trying to teach people why this security matters
 
 ### Beginner
