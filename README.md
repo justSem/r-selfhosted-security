@@ -45,6 +45,11 @@ More will be added as time passes.
   
   @ImTheNachoMan maintains a well-rounded guide into security on Linux platforms, as well trying to teach people why this security matters
 
+* ZeroTier One -  A guide to a self-hostable L2/L3 WAN [here](https://github.com/justsem/r-selfhosted-security/guides-by-topic/Zerotier.md)
+  
+  Credit goes to @d-rickyy-b for his hard work!
+
+
 ### Beginner
 
 
