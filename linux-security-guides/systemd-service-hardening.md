@@ -1,4 +1,4 @@
-> NOTICE: This guide is under construction and will be finished in the coming few days. Please check back later if you want the full read. (10-Feb-2022)
+> NOTICE: This guide is under construction and will be finished in the coming few days. Please check back later if you want the full read. (16-Feb-2022)
 
 # Systemd Service Hardening
 
@@ -49,5 +49,41 @@ On the other hand there _are_ developers that package their services as rootless
 
 So how do you determine if your service needs to run as root? Some very popular ones - such as nginx, or php-fpm - run their master process as root, but why?
 Well there are a few reasons for that, here are some:
-- Nginx uses ports < 1024. By default this requires the `NET_BIND` capability (more on capabilities later).
+- Nginx uses ports < 1024. By default this requires the `NET_BIND` capability (more on capabilities later). A capability like this can only be assigned to a privileged process, or a process requesting said privileged (which require `execve` or similar).
 - Nginx can do - in special setups - some freaky stuff with sockets and all kind of TCP connections, which might require the spawning of `AF_UNIX` or `AF_NETLINK` sockets.
+
+So while there are workarounds to run nginx completely rootless it's massively unpractical and easy to break, and obviously beyond the scope of this topic.
+
+
+### What do I need to sandbox?
+Simple, as much as possible of course!
+Some services - especially when they start requiring device access, or do advanced things - might not be that sandbox-able at all.
+So in my opinion the main idea is to see how strict we can make our sandboxing without breaking (too much) functionality.
+
+Of course you can try to limit a service's functionality if you know you won't need parts of it. In the nginx example you could try to revoke the AF_UNIX or AF_NETLINK socket permissions.
+If that works is dependent on how the program request those rights.
+If the program checks those permissions on launch it may break, if it checks them only if you configure the program to use them, you might be in luck.
+
+
+### Capabilities
+There are a few key concepts one needs to understand here - one part of this are [Linux Capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html).
+Simply put: Linux capabilities can be compared to a set of admin roles on, let's say a discord server.
+
+There are (at the time of writing) a total of 41 capabilities, some of which you'll probably never use.
+
+A few examples of these capabilites are:
+- *CAP_SYS_BOOT* Allows the program to reboot the system
+- *CAP_SYS_MODULE* Allows the program to load/unload kernel modules
+- *CAP_NET_BIND_SERVICE* Allows the program to use ports < 1024.
+
+Nginx, our example service, obviously doesn't require permissions to reboot the system, or to load/unload kernel modules.
+These are capabilities we can easily revoke, so in case you nginx process might become compromised and starts to run arbitrary code it won't be able to 'just' mess with your kernel.
+
+
+
+## Sanboxing features
+> Note: All of the following features can be found as well in the [systemd manual](https://www.freedesktop.org/software/systemd/man/systemd.exec.html)
+
+I'm going to walk you through most of the sandboxing features Systemd offers. Some are rarely used or just not applicable and are therefore omitted. You can obviously refer to the man page if you want to know more about them.
+
+> NOTE: to be continued ;)
